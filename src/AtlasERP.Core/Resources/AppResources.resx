@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <!-- Application Name -->
+  <data name="AppName" xml:space="preserve">
+    <value>AtlasERP</value>
+  </data>
+  <data name="AppSubtitle" xml:space="preserve">
+    <value>Enterprise Resource Planning</value>
+  </data>
+  
+  <!-- Login Page -->
+  <data name="SignIn" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="EnterUsername" xml:space="preserve">
+    <value>Enter your username</value>
+  </data>
+  <data name="EnterPassword" xml:space="preserve">
+    <value>Enter your password</value>
+  </data>
+  <data name="DemoMode" xml:space="preserve">
+    <value>Demo Mode</value>
+  </data>
+  <data name="DemoModeInfo" xml:space="preserve">
+    <value>Use any username/password to login</value>
+  </data>
+  <data name="DemoAdminInfo" xml:space="preserve">
+    <value>Use 'admin' as username for admin role</value>
+  </data>
+  
+  <!-- Main Page -->
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Welcome to AtlasERP</value>
+  </data>
+  <data name="WelcomeDescription" xml:space="preserve">
+    <value>Select a module or management option from the menu to get started.</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  
+  <!-- Menu Items -->
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="UserManagement" xml:space="preserve">
+    <value>User Management</value>
+  </data>
+  <data name="OrganizationManagement" xml:space="preserve">
+    <value>Organization Management</value>
+  </data>
+  <data name="ModuleManagement" xml:space="preserve">
+    <value>Module Management</value>
+  </data>
+  
+  <!-- Dashboard -->
+  <data name="DashboardTitle" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="DashboardDescription" xml:space="preserve">
+    <value>Your business overview at a glance</value>
+  </data>
+  <data name="SalesOverview" xml:space="preserve">
+    <value>Sales Overview</value>
+  </data>
+  <data name="InventoryStatus" xml:space="preserve">
+    <value>Inventory Status</value>
+  </data>
+  <data name="ActiveEmployees" xml:space="preserve">
+    <value>Active Employees</value>
+  </data>
+  <data name="PendingTransactions" xml:space="preserve">
+    <value>Pending Transactions</value>
+  </data>
+  <data name="FromLastMonth" xml:space="preserve">
+    <value>from last month</value>
+  </data>
+  <data name="LowStockAlerts" xml:space="preserve">
+    <value>low stock alerts</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>Items</value>
+  </data>
+  <data name="NewThisMonth" xml:space="preserve">
+    <value>new this month</value>
+  </data>
+  <data name="RequiresApproval" xml:space="preserve">
+    <value>Requires approval</value>
+  </data>
+  
+  <!-- Stats Cards -->
+  <data name="ActiveUsers" xml:space="preserve">
+    <value>Active Users</value>
+  </data>
+  <data name="ActiveModules" xml:space="preserve">
+    <value>Active Modules</value>
+  </data>
+  <data name="Organizations" xml:space="preserve">
+    <value>Organizations</value>
+  </data>
+  
+  <!-- User Management -->
+  <data name="UserManagementTitle" xml:space="preserve">
+    <value>User Management</value>
+  </data>
+  <data name="UserManagementDescription" xml:space="preserve">
+    <value>Manage system users and their permissions</value>
+  </data>
+  <data name="AddUser" xml:space="preserve">
+    <value>Add User</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  
+  <!-- Organization Management -->
+  <data name="OrganizationManagementTitle" xml:space="preserve">
+    <value>Organization Management</value>
+  </data>
+  <data name="OrganizationManagementDescription" xml:space="preserve">
+    <value>Manage organizations and their settings</value>
+  </data>
+  <data name="AddOrganization" xml:space="preserve">
+    <value>Add Organization</value>
+  </data>
+  <data name="OrganizationName" xml:space="preserve">
+    <value>Organization Name</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  
+  <!-- Module Management -->
+  <data name="ModuleManagementTitle" xml:space="preserve">
+    <value>Module Management</value>
+  </data>
+  <data name="ModuleManagementDescription" xml:space="preserve">
+    <value>Configure and enable modules</value>
+  </data>
+  <data name="ModuleName" xml:space="preserve">
+    <value>Module Name</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  
+  <!-- Common -->
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="LanguageSelectionInfo" xml:space="preserve">
+    <value>Select your preferred language</value>
+  </data>
+  <data name="LanguageChangeInfo" xml:space="preserve">
+    <value>Language will change immediately</value>
+  </data>
+  <data name="LanguageChangeDescription" xml:space="preserve">
+    <value>The interface language will update as soon as you select a different option</value>
+  </data>
+</root>

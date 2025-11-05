@@ -29,6 +29,7 @@ public static class MauiProgram
         // Register Core Services
         builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
         builder.Services.AddSingleton<IModuleManager, ModuleManager>();
+        builder.Services.AddSingleton<ILocalizationService, LocalizationService>();
 
         // Register Views
         builder.Services.AddTransient<LoginPage>();
@@ -37,6 +38,7 @@ public static class MauiProgram
         builder.Services.AddTransient<UserManagementPage>();
         builder.Services.AddTransient<OrganizationManagementPage>();
         builder.Services.AddTransient<ModuleManagementPage>();
+        builder.Services.AddTransient<SettingsPage>();
 
         // Register ViewModels
         builder.Services.AddTransient<LoginPageViewModel>();
@@ -45,6 +47,7 @@ public static class MauiProgram
         builder.Services.AddTransient<UserManagementPageViewModel>();
         builder.Services.AddTransient<OrganizationManagementPageViewModel>();
         builder.Services.AddTransient<ModuleManagementPageViewModel>();
+        builder.Services.AddTransient<SettingsPageViewModel>();
 
         return builder.Build();
     }

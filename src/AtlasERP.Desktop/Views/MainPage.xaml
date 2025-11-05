@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AtlasERP.Desktop.Views.MainPage"
              xmlns:viewmodels="clr-namespace:AtlasERP.Desktop.ViewModels"
+             xmlns:ext="clr-namespace:AtlasERP.Desktop.Extensions"
              x:DataType="viewmodels:MainPageViewModel"
              Title="{Binding Title}">
 
@@ -21,7 +22,7 @@
                 
                 <!-- Header -->
                 <VerticalStackLayout Grid.Row="0" Padding="20" Spacing="10">
-                    <Label Text="AtlasERP"
+                    <Label Text="{ext:Localize AppName}"
                            FontSize="24"
                            FontAttributes="Bold"
                            TextColor="{StaticResource Primary}"/>
@@ -68,7 +69,7 @@
 
                 <!-- Logout Button -->
                 <Button Grid.Row="2"
-                        Text="Logout"
+                        Text="{ext:Localize Logout}"
                         Command="{Binding LogoutCommand}"
                         Margin="15"
                         BackgroundColor="{StaticResource Error}"/>
@@ -83,11 +84,11 @@
             <ScrollView>
                 <VerticalStackLayout Padding="30" Spacing="20">
                     
-                    <Label Text="Welcome to AtlasERP"
+                    <Label Text="{ext:Localize WelcomeMessage}"
                            FontSize="32"
                            FontAttributes="Bold"/>
 
-                    <Label Text="Select a module or management option from the menu to get started."
+                    <Label Text="{ext:Localize WelcomeDescription}"
                            FontSize="16"
                            TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
 
@@ -103,7 +104,7 @@
                                 Padding="20">
                             <VerticalStackLayout Spacing="10">
                                 <Label Text="👥" FontSize="32" HorizontalOptions="Center"/>
-                                <Label Text="Active Users" FontSize="14" HorizontalOptions="Center"
+                                <Label Text="{ext:Localize ActiveUsers}" FontSize="14" HorizontalOptions="Center"
                                        TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
                                 <Label Text="24" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
                             </VerticalStackLayout>
@@ -118,7 +119,7 @@
                                 Padding="20">
                             <VerticalStackLayout Spacing="10">
                                 <Label Text="⚙️" FontSize="32" HorizontalOptions="Center"/>
-                                <Label Text="Active Modules" FontSize="14" HorizontalOptions="Center"
+                                <Label Text="{ext:Localize ActiveModules}" FontSize="14" HorizontalOptions="Center"
                                        TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
                                 <Label Text="4" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
                             </VerticalStackLayout>
@@ -133,7 +134,7 @@
                                 Padding="20">
                             <VerticalStackLayout Spacing="10">
                                 <Label Text="🏢" FontSize="32" HorizontalOptions="Center"/>
-                                <Label Text="Organizations" FontSize="14" HorizontalOptions="Center"
+                                <Label Text="{ext:Localize Organizations}" FontSize="14" HorizontalOptions="Center"
                                        TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
                                 <Label Text="3" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
                             </VerticalStackLayout>

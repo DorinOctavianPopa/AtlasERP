@@ -15,6 +15,7 @@ A powerful, modular Enterprise Resource Planning (ERP) desktop application built
 - 📊 **Dashboard** - Business overview at a glance
 - 🎨 **Modern UI** - Clean, responsive design with light/dark theme support
 - 🔧 **Modular Architecture** - Extensible plugin-based module system
+- 🌍 **Multi-Language Support** - English, Romanian, and Spanish with runtime switching
 
 ## Modules
 
@@ -190,6 +191,17 @@ The project includes VS Code debug configurations for building and running on di
 
 ## Customization
 
+### Multi-Language Support
+
+AtlasERP supports multiple languages with runtime switching:
+
+- **Supported Languages**: English (default), Romanian, Spanish
+- **Access Settings**: Navigate to Settings from the main menu
+- **Switch Languages**: Select your preferred language from the dropdown
+- **Instant Updates**: The UI updates immediately without restart
+
+For detailed information about localization, adding new languages, or contributing translations, see the [Multi-Language Guide](MULTI_LANGUAGE_GUIDE.md).
+
 ### Theming
 
 The application supports light and dark themes. Customize colors in:
@@ -227,7 +239,7 @@ For issues and questions:
 - [ ] Add more module functionality
 - [ ] Create mobile-optimized layouts
 - [ ] Add reporting and analytics
-- [ ] Implement multi-language support
+- [x] Implement multi-language support
 - [ ] Add unit and integration tests
 - [ ] Create deployment packages
 

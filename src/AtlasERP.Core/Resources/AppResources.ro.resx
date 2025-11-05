@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <!-- Application Name -->
+  <data name="AppName" xml:space="preserve">
+    <value>AtlasERP</value>
+  </data>
+  <data name="AppSubtitle" xml:space="preserve">
+    <value>Planificare Resurse Întreprindere</value>
+  </data>
+  
+  <!-- Login Page -->
+  <data name="SignIn" xml:space="preserve">
+    <value>Autentificare</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Nume utilizator</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Parolă</value>
+  </data>
+  <data name="EnterUsername" xml:space="preserve">
+    <value>Introduceți numele de utilizator</value>
+  </data>
+  <data name="EnterPassword" xml:space="preserve">
+    <value>Introduceți parola</value>
+  </data>
+  <data name="DemoMode" xml:space="preserve">
+    <value>Mod Demo</value>
+  </data>
+  <data name="DemoModeInfo" xml:space="preserve">
+    <value>Utilizați orice nume/parolă pentru autentificare</value>
+  </data>
+  <data name="DemoAdminInfo" xml:space="preserve">
+    <value>Utilizați 'admin' ca nume pentru rol de administrator</value>
+  </data>
+  
+  <!-- Main Page -->
+  <data name="Welcome" xml:space="preserve">
+    <value>Bun venit</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Bun venit la AtlasERP</value>
+  </data>
+  <data name="WelcomeDescription" xml:space="preserve">
+    <value>Selectați un modul sau opțiune de administrare din meniu pentru a începe.</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Deconectare</value>
+  </data>
+  
+  <!-- Menu Items -->
+  <data name="Dashboard" xml:space="preserve">
+    <value>Panou de control</value>
+  </data>
+  <data name="UserManagement" xml:space="preserve">
+    <value>Gestionare utilizatori</value>
+  </data>
+  <data name="OrganizationManagement" xml:space="preserve">
+    <value>Gestionare organizații</value>
+  </data>
+  <data name="ModuleManagement" xml:space="preserve">
+    <value>Gestionare module</value>
+  </data>
+  
+  <!-- Dashboard -->
+  <data name="DashboardTitle" xml:space="preserve">
+    <value>Panou de control</value>
+  </data>
+  <data name="DashboardDescription" xml:space="preserve">
+    <value>Prezentare generală a afacerii dumneavoastră</value>
+  </data>
+  <data name="SalesOverview" xml:space="preserve">
+    <value>Prezentare vânzări</value>
+  </data>
+  <data name="InventoryStatus" xml:space="preserve">
+    <value>Stare inventar</value>
+  </data>
+  <data name="ActiveEmployees" xml:space="preserve">
+    <value>Angajați activi</value>
+  </data>
+  <data name="PendingTransactions" xml:space="preserve">
+    <value>Tranzacții în așteptare</value>
+  </data>
+  <data name="FromLastMonth" xml:space="preserve">
+    <value>față de luna trecută</value>
+  </data>
+  <data name="LowStockAlerts" xml:space="preserve">
+    <value>alerte stoc scăzut</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>Articole</value>
+  </data>
+  <data name="NewThisMonth" xml:space="preserve">
+    <value>noi luna aceasta</value>
+  </data>
+  <data name="RequiresApproval" xml:space="preserve">
+    <value>Necesită aprobare</value>
+  </data>
+  
+  <!-- Stats Cards -->
+  <data name="ActiveUsers" xml:space="preserve">
+    <value>Utilizatori activi</value>
+  </data>
+  <data name="ActiveModules" xml:space="preserve">
+    <value>Module active</value>
+  </data>
+  <data name="Organizations" xml:space="preserve">
+    <value>Organizații</value>
+  </data>
+  
+  <!-- User Management -->
+  <data name="UserManagementTitle" xml:space="preserve">
+    <value>Gestionare utilizatori</value>
+  </data>
+  <data name="UserManagementDescription" xml:space="preserve">
+    <value>Gestionați utilizatorii sistemului și permisiunile lor</value>
+  </data>
+  <data name="AddUser" xml:space="preserve">
+    <value>Adăugare utilizator</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Nume complet</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Rol</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Acțiuni</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editare</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Ștergere</value>
+  </data>
+  
+  <!-- Organization Management -->
+  <data name="OrganizationManagementTitle" xml:space="preserve">
+    <value>Gestionare organizații</value>
+  </data>
+  <data name="OrganizationManagementDescription" xml:space="preserve">
+    <value>Gestionați organizațiile și setările lor</value>
+  </data>
+  <data name="AddOrganization" xml:space="preserve">
+    <value>Adăugare organizație</value>
+  </data>
+  <data name="OrganizationName" xml:space="preserve">
+    <value>Nume organizație</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adresă</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  
+  <!-- Module Management -->
+  <data name="ModuleManagementTitle" xml:space="preserve">
+    <value>Gestionare module</value>
+  </data>
+  <data name="ModuleManagementDescription" xml:space="preserve">
+    <value>Configurați și activați modulele</value>
+  </data>
+  <data name="ModuleName" xml:space="preserve">
+    <value>Nume modul</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Descriere</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stare</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Activat</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Dezactivat</value>
+  </data>
+  
+  <!-- Common -->
+  <data name="Save" xml:space="preserve">
+    <value>Salvare</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulare</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Închidere</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Da</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nu</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Limbă</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Setări</value>
+  </data>
+  <data name="LanguageSelectionInfo" xml:space="preserve">
+    <value>Selecționați limba preferată</value>
+  </data>
+  <data name="LanguageChangeInfo" xml:space="preserve">
+    <value>Limba se va schimba imediat</value>
+  </data>
+  <data name="LanguageChangeDescription" xml:space="preserve">
+    <value>Limba interfeței se va actualiza imediat ce selectați o altă opțiune</value>
+  </data>
+</root>

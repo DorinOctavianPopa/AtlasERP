@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <!-- Application Name -->
+  <data name="AppName" xml:space="preserve">
+    <value>AtlasERP</value>
+  </data>
+  <data name="AppSubtitle" xml:space="preserve">
+    <value>Planificación de Recursos Empresariales</value>
+  </data>
+  
+  <!-- Login Page -->
+  <data name="SignIn" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="EnterUsername" xml:space="preserve">
+    <value>Ingrese su nombre de usuario</value>
+  </data>
+  <data name="EnterPassword" xml:space="preserve">
+    <value>Ingrese su contraseña</value>
+  </data>
+  <data name="DemoMode" xml:space="preserve">
+    <value>Modo Demo</value>
+  </data>
+  <data name="DemoModeInfo" xml:space="preserve">
+    <value>Use cualquier usuario/contraseña para ingresar</value>
+  </data>
+  <data name="DemoAdminInfo" xml:space="preserve">
+    <value>Use 'admin' como usuario para rol de administrador</value>
+  </data>
+  
+  <!-- Main Page -->
+  <data name="Welcome" xml:space="preserve">
+    <value>Bienvenido</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Bienvenido a AtlasERP</value>
+  </data>
+  <data name="WelcomeDescription" xml:space="preserve">
+    <value>Seleccione un módulo u opción de gestión del menú para comenzar.</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Cerrar sesión</value>
+  </data>
+  
+  <!-- Menu Items -->
+  <data name="Dashboard" xml:space="preserve">
+    <value>Panel de control</value>
+  </data>
+  <data name="UserManagement" xml:space="preserve">
+    <value>Gestión de usuarios</value>
+  </data>
+  <data name="OrganizationManagement" xml:space="preserve">
+    <value>Gestión de organizaciones</value>
+  </data>
+  <data name="ModuleManagement" xml:space="preserve">
+    <value>Gestión de módulos</value>
+  </data>
+  
+  <!-- Dashboard -->
+  <data name="DashboardTitle" xml:space="preserve">
+    <value>Panel de control</value>
+  </data>
+  <data name="DashboardDescription" xml:space="preserve">
+    <value>Resumen de su negocio de un vistazo</value>
+  </data>
+  <data name="SalesOverview" xml:space="preserve">
+    <value>Resumen de ventas</value>
+  </data>
+  <data name="InventoryStatus" xml:space="preserve">
+    <value>Estado del inventario</value>
+  </data>
+  <data name="ActiveEmployees" xml:space="preserve">
+    <value>Empleados activos</value>
+  </data>
+  <data name="PendingTransactions" xml:space="preserve">
+    <value>Transacciones pendientes</value>
+  </data>
+  <data name="FromLastMonth" xml:space="preserve">
+    <value>desde el mes pasado</value>
+  </data>
+  <data name="LowStockAlerts" xml:space="preserve">
+    <value>alertas de stock bajo</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>Artículos</value>
+  </data>
+  <data name="NewThisMonth" xml:space="preserve">
+    <value>nuevos este mes</value>
+  </data>
+  <data name="RequiresApproval" xml:space="preserve">
+    <value>Requiere aprobación</value>
+  </data>
+  
+  <!-- Stats Cards -->
+  <data name="ActiveUsers" xml:space="preserve">
+    <value>Usuarios activos</value>
+  </data>
+  <data name="ActiveModules" xml:space="preserve">
+    <value>Módulos activos</value>
+  </data>
+  <data name="Organizations" xml:space="preserve">
+    <value>Organizaciones</value>
+  </data>
+  
+  <!-- User Management -->
+  <data name="UserManagementTitle" xml:space="preserve">
+    <value>Gestión de usuarios</value>
+  </data>
+  <data name="UserManagementDescription" xml:space="preserve">
+    <value>Administre usuarios del sistema y sus permisos</value>
+  </data>
+  <data name="AddUser" xml:space="preserve">
+    <value>Agregar usuario</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Nombre completo</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Correo electrónico</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Rol</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Acciones</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  
+  <!-- Organization Management -->
+  <data name="OrganizationManagementTitle" xml:space="preserve">
+    <value>Gestión de organizaciones</value>
+  </data>
+  <data name="OrganizationManagementDescription" xml:space="preserve">
+    <value>Administre organizaciones y su configuración</value>
+  </data>
+  <data name="AddOrganization" xml:space="preserve">
+    <value>Agregar organización</value>
+  </data>
+  <data name="OrganizationName" xml:space="preserve">
+    <value>Nombre de organización</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Teléfono</value>
+  </data>
+  
+  <!-- Module Management -->
+  <data name="ModuleManagementTitle" xml:space="preserve">
+    <value>Gestión de módulos</value>
+  </data>
+  <data name="ModuleManagementDescription" xml:space="preserve">
+    <value>Configure y habilite módulos</value>
+  </data>
+  <data name="ModuleName" xml:space="preserve">
+    <value>Nombre del módulo</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Habilitado</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Deshabilitado</value>
+  </data>
+  
+  <!-- Common -->
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Sí</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="LanguageSelectionInfo" xml:space="preserve">
+    <value>Selecciona tu idioma preferido</value>
+  </data>
+  <data name="LanguageChangeInfo" xml:space="preserve">
+    <value>El idioma cambiará inmediatamente</value>
+  </data>
+  <data name="LanguageChangeDescription" xml:space="preserve">
+    <value>El idioma de la interfaz se actualizará tan pronto como seleccione una opción diferente</value>
+  </data>
+</root>

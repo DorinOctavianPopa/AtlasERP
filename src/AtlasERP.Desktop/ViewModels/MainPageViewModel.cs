@@ -37,7 +37,7 @@ public partial class MainPageViewModel : ViewModelBase
         // Management Section
         MenuItems.Add(new MenuItem
         {
-            Title = "Dashboard",
+            Title = Core.Resources.AppResources.Dashboard,
             Icon = "📊",
             NavigationPage = "DashboardPage",
             Section = "Overview"
@@ -45,7 +45,7 @@ public partial class MainPageViewModel : ViewModelBase
 
         MenuItems.Add(new MenuItem
         {
-            Title = "User Management",
+            Title = Core.Resources.AppResources.UserManagement,
             Icon = "👥",
             NavigationPage = "UserManagementPage",
             Section = "Administration"
@@ -53,7 +53,7 @@ public partial class MainPageViewModel : ViewModelBase
 
         MenuItems.Add(new MenuItem
         {
-            Title = "Organization Management",
+            Title = Core.Resources.AppResources.OrganizationManagement,
             Icon = "🏢",
             NavigationPage = "OrganizationManagementPage",
             Section = "Administration"
@@ -61,9 +61,17 @@ public partial class MainPageViewModel : ViewModelBase
 
         MenuItems.Add(new MenuItem
         {
-            Title = "Module Management",
+            Title = Core.Resources.AppResources.ModuleManagement,
             Icon = "⚙️",
             NavigationPage = "ModuleManagementPage",
+            Section = "Administration"
+        });
+
+        MenuItems.Add(new MenuItem
+        {
+            Title = Core.Resources.AppResources.Settings,
+            Icon = "🔧",
+            NavigationPage = "SettingsPage",
             Section = "Administration"
         });
 
@@ -113,7 +121,7 @@ public partial class MainPageViewModel : ViewModelBase
     {
         if (_authService.CurrentUser != null)
         {
-            WelcomeMessage = $"Welcome, {_authService.CurrentUser.FullName}!";
+            WelcomeMessage = $"{Core.Resources.AppResources.Welcome}, {_authService.CurrentUser.FullName}!";
         }
     }
 }

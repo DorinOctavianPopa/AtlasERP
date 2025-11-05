@@ -3,16 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AtlasERP.Desktop.Views.DashboardPage"
              xmlns:viewmodels="clr-namespace:AtlasERP.Desktop.ViewModels"
+             xmlns:ext="clr-namespace:AtlasERP.Desktop.Extensions"
              x:DataType="viewmodels:DashboardPageViewModel"
              Title="{Binding Title}">
     
     <ScrollView>
         <VerticalStackLayout Padding="30" Spacing="20">
-            <Label Text="Dashboard"
+            <Label Text="{ext:Localize DashboardTitle}"
                    FontSize="32"
                    FontAttributes="Bold"/>
             
-            <Label Text="Your business overview at a glance"
+            <Label Text="{ext:Localize DashboardDescription}"
                    FontSize="16"
                    TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
 
@@ -25,9 +26,16 @@
                         Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
                         Padding="20">
                     <VerticalStackLayout Spacing="10">
-                        <Label Text="Sales Overview" FontSize="18" FontAttributes="Bold"/>
+                        <Label Text="{ext:Localize SalesOverview}" FontSize="18" FontAttributes="Bold"/>
                         <Label Text="$125,430" FontSize="32" TextColor="{StaticResource Success}"/>
-                        <Label Text="+12% from last month" FontSize="12" TextColor="{StaticResource Success}"/>
+                        <Label FontSize="12" TextColor="{StaticResource Success}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="+12% " />
+                                    <Span Text="{Binding Source={ext:Localize FromLastMonth}}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
                     </VerticalStackLayout>
                 </Border>
 
@@ -37,9 +45,23 @@
                         Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
                         Padding="20">
                     <VerticalStackLayout Spacing="10">
-                        <Label Text="Inventory Status" FontSize="18" FontAttributes="Bold"/>
-                        <Label Text="842 Items" FontSize="32" TextColor="{StaticResource Info}"/>
-                        <Label Text="23 low stock alerts" FontSize="12" TextColor="{StaticResource Warning}"/>
+                        <Label Text="{ext:Localize InventoryStatus}" FontSize="18" FontAttributes="Bold"/>
+                        <Label FontSize="32" TextColor="{StaticResource Info}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="842 " />
+                                    <Span Text="{Binding Source={ext:Localize Items}}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label FontSize="12" TextColor="{StaticResource Warning}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="23 " />
+                                    <Span Text="{Binding Source={ext:Localize LowStockAlerts}}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
                     </VerticalStackLayout>
                 </Border>
 
@@ -49,9 +71,16 @@
                         Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
                         Padding="20">
                     <VerticalStackLayout Spacing="10">
-                        <Label Text="Active Employees" FontSize="18" FontAttributes="Bold"/>
+                        <Label Text="{ext:Localize ActiveEmployees}" FontSize="18" FontAttributes="Bold"/>
                         <Label Text="156" FontSize="32" TextColor="{StaticResource Primary}"/>
-                        <Label Text="3 new this month" FontSize="12" TextColor="{StaticResource Success}"/>
+                        <Label FontSize="12" TextColor="{StaticResource Success}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="3 " />
+                                    <Span Text="{Binding Source={ext:Localize NewThisMonth}}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
                     </VerticalStackLayout>
                 </Border>
 
@@ -61,9 +90,9 @@
                         Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
                         Padding="20">
                     <VerticalStackLayout Spacing="10">
-                        <Label Text="Pending Transactions" FontSize="18" FontAttributes="Bold"/>
+                        <Label Text="{ext:Localize PendingTransactions}" FontSize="18" FontAttributes="Bold"/>
                         <Label Text="38" FontSize="32" TextColor="{StaticResource Warning}"/>
-                        <Label Text="Requires approval" FontSize="12" TextColor="{StaticResource Warning}"/>
+                        <Label Text="{ext:Localize RequiresApproval}" FontSize="12" TextColor="{StaticResource Warning}"/>
                     </VerticalStackLayout>
                 </Border>
             </Grid>
