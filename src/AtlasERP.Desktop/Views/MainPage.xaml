@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtlasERP.Desktop.Views.MainPage"
+             xmlns:viewmodels="clr-namespace:AtlasERP.Desktop.ViewModels"
+             x:DataType="viewmodels:MainPageViewModel"
+             Title="{Binding Title}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar Navigation -->
+        <Border Grid.Column="0"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray950}}"
+                StrokeThickness="0">
+            
+            <Grid RowDefinitions="Auto,*,Auto">
+                
+                <!-- Header -->
+                <VerticalStackLayout Grid.Row="0" Padding="20" Spacing="10">
+                    <Label Text="AtlasERP"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource Primary}"/>
+                    <Label Text="{Binding WelcomeMessage}"
+                           FontSize="12"
+                           TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                </VerticalStackLayout>
+
+                <!-- Menu Items -->
+                <ScrollView Grid.Row="1">
+                    <CollectionView ItemsSource="{Binding MenuItems}"
+                                  SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="viewmodels:MenuItem">
+                                <Border StrokeThickness="0"
+                                        Padding="0"
+                                        Margin="5,2">
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainPageViewModel}}, Path=NavigateCommand}"
+                                                            CommandParameter="{Binding NavigationPage}"/>
+                                    </Border.GestureRecognizers>
+                                    
+                                    <Grid Padding="15,10"
+                                          BackgroundColor="Transparent">
+                                        <Grid.GestureRecognizers>
+                                            <PointerGestureRecognizer PointerEntered="OnPointerEntered"
+                                                                    PointerExited="OnPointerExited"/>
+                                        </Grid.GestureRecognizers>
+                                        
+                                        <HorizontalStackLayout Spacing="10">
+                                            <Label Text="{Binding Icon}"
+                                                   FontSize="20"
+                                                   VerticalOptions="Center"/>
+                                            <Label Text="{Binding Title}"
+                                                   FontSize="14"
+                                                   VerticalOptions="Center"/>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+
+                <!-- Logout Button -->
+                <Button Grid.Row="2"
+                        Text="Logout"
+                        Command="{Binding LogoutCommand}"
+                        Margin="15"
+                        BackgroundColor="{StaticResource Error}"/>
+            </Grid>
+        </Border>
+
+        <!-- Main Content Area -->
+        <Border Grid.Column="1"
+                BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"
+                StrokeThickness="0">
+            
+            <ScrollView>
+                <VerticalStackLayout Padding="30" Spacing="20">
+                    
+                    <Label Text="Welcome to AtlasERP"
+                           FontSize="32"
+                           FontAttributes="Bold"/>
+
+                    <Label Text="Select a module or management option from the menu to get started."
+                           FontSize="16"
+                           TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+
+                    <!-- Quick Stats Grid -->
+                    <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto" ColumnSpacing="15" Margin="0,30,0,0">
+                        
+                        <!-- Active Users Card -->
+                        <Border Grid.Column="0"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 10"
+                                Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray950}}"
+                                Padding="20">
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="👥" FontSize="32" HorizontalOptions="Center"/>
+                                <Label Text="Active Users" FontSize="14" HorizontalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                                <Label Text="24" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!-- Modules Card -->
+                        <Border Grid.Column="1"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 10"
+                                Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray950}}"
+                                Padding="20">
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="⚙️" FontSize="32" HorizontalOptions="Center"/>
+                                <Label Text="Active Modules" FontSize="14" HorizontalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                                <Label Text="4" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!-- Organizations Card -->
+                        <Border Grid.Column="2"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 10"
+                                Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray950}}"
+                                Padding="20">
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="🏢" FontSize="32" HorizontalOptions="Center"/>
+                                <Label Text="Organizations" FontSize="14" HorizontalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                                <Label Text="3" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+
+                </VerticalStackLayout>
+            </ScrollView>
+        </Border>
+    </Grid>
+</ContentPage>

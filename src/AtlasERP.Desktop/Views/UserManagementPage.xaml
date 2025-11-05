@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtlasERP.Desktop.Views.UserManagementPage"
+             xmlns:viewmodels="clr-namespace:AtlasERP.Desktop.ViewModels"
+             xmlns:models="clr-namespace:AtlasERP.Core.Models;assembly=AtlasERP.Core"
+             x:DataType="viewmodels:UserManagementPageViewModel"
+             Title="{Binding Title}">
+
+    <Grid RowDefinitions="Auto,*" Padding="30" RowSpacing="20">
+        
+        <!-- Header -->
+        <VerticalStackLayout Grid.Row="0" Spacing="10">
+            <Label Text="User Management"
+                   FontSize="32"
+                   FontAttributes="Bold"/>
+            
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="➕ Add User"
+                        Command="{Binding AddUserCommand}"
+                        BackgroundColor="{StaticResource Success}"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <!-- Users List -->
+        <Border Grid.Row="1"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 10"
+                Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}">
+            
+            <CollectionView ItemsSource="{Binding Users}"
+                          SelectionMode="None">
+                <CollectionView.Header>
+                    <Grid Padding="15"
+                          BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                          ColumnDefinitions="*,*,*,*,Auto">
+                        <Label Grid.Column="0" Text="Username" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="Name" FontAttributes="Bold"/>
+                        <Label Grid.Column="2" Text="Email" FontAttributes="Bold"/>
+                        <Label Grid.Column="3" Text="Role" FontAttributes="Bold"/>
+                        <Label Grid.Column="4" Text="Actions" FontAttributes="Bold"/>
+                    </Grid>
+                </CollectionView.Header>
+                
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:User">
+                        <Border StrokeThickness="0,0,0,1"
+                                Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                                Padding="15">
+                            <Grid ColumnDefinitions="*,*,*,*,Auto" ColumnSpacing="10">
+                                <Label Grid.Column="0" 
+                                       Text="{Binding Username}"
+                                       VerticalOptions="Center"/>
+                                <Label Grid.Column="1" 
+                                       Text="{Binding FullName}"
+                                       VerticalOptions="Center"/>
+                                <Label Grid.Column="2" 
+                                       Text="{Binding Email}"
+                                       VerticalOptions="Center"/>
+                                <Label Grid.Column="3" 
+                                       Text="{Binding Role}"
+                                       VerticalOptions="Center"/>
+                                <HorizontalStackLayout Grid.Column="4" Spacing="5">
+                                    <Button Text="✏️"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:UserManagementPageViewModel}}, Path=EditUserCommand}"
+                                            CommandParameter="{Binding .}"
+                                            WidthRequest="40"
+                                            Padding="0"/>
+                                    <Button Text="🗑️"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:UserManagementPageViewModel}}, Path=DeleteUserCommand}"
+                                            CommandParameter="{Binding .}"
+                                            BackgroundColor="{StaticResource Error}"
+                                            WidthRequest="40"
+                                            Padding="0"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+    </Grid>
+</ContentPage>
