@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtlasERP.Desktop.Views.ModuleManagementPage"
+             xmlns:viewmodels="clr-namespace:AtlasERP.Desktop.ViewModels"
+             xmlns:models="clr-namespace:AtlasERP.Core.Models;assembly=AtlasERP.Core"
+             x:DataType="viewmodels:ModuleManagementPageViewModel"
+             Title="{Binding Title}">
+
+    <Grid RowDefinitions="Auto,*" Padding="30" RowSpacing="20">
+        
+        <!-- Header -->
+        <VerticalStackLayout Grid.Row="0" Spacing="10">
+            <Label Text="Module Management"
+                   FontSize="32"
+                   FontAttributes="Bold"/>
+            <Label Text="Enable or disable modules for your organization"
+                   FontSize="16"
+                   TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+        </VerticalStackLayout>
+
+        <!-- Modules Grid -->
+        <ScrollView Grid.Row="1">
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="15">
+                <CollectionView Grid.ColumnSpan="2"
+                              ItemsSource="{Binding Modules}"
+                              SelectionMode="None">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="15" VerticalItemSpacing="15"/>
+                    </CollectionView.ItemsLayout>
+                    
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:ModuleInfo">
+                            <Border StrokeThickness="1"
+                                    StrokeShape="RoundRectangle 10"
+                                    Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                                    Padding="25">
+                                
+                                <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="15">
+                                    
+                                    <!-- Icon and Title -->
+                                    <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto">
+                                        <Label Grid.Column="0"
+                                               Text="{Binding Icon}"
+                                               FontSize="48"
+                                               VerticalOptions="Center"/>
+                                        
+                                        <VerticalStackLayout Grid.Column="1" Spacing="5" Margin="15,0,0,0">
+                                            <Label Text="{Binding Name}"
+                                                   FontSize="20"
+                                                   FontAttributes="Bold"/>
+                                            <Label Text="{Binding Description}"
+                                                   FontSize="12"
+                                                   TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                                        </VerticalStackLayout>
+
+                                        <Switch Grid.Column="2"
+                                                IsToggled="{Binding IsEnabled}"
+                                                VerticalOptions="Center"/>
+                                    </Grid>
+
+                                    <!-- Status Badge -->
+                                    <Border Grid.Row="1"
+                                            BackgroundColor="{Binding IsEnabled, Converter={StaticResource BoolToColorConverter}, ConverterParameter='Success|Gray400'}"
+                                            StrokeThickness="0"
+                                            Padding="10,5"
+                                            StrokeShape="RoundRectangle 4"
+                                            HorizontalOptions="Start">
+                                        <Label Text="{Binding IsEnabled, Converter={StaticResource BoolToTextConverter}, ConverterParameter='Enabled|Disabled'}"
+                                               TextColor="White"
+                                               FontSize="12"
+                                               FontAttributes="Bold"/>
+                                    </Border>
+
+                                    <!-- Module Info -->
+                                    <Grid Grid.Row="2" ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                                        <Label Grid.Column="0" 
+                                               Text="Module ID:"
+                                               FontSize="12"
+                                               TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                                        <Label Grid.Column="1" 
+                                               Text="{Binding Id}"
+                                               FontSize="12"
+                                               TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                                    </Grid>
+
+                                    <!-- Action Button -->
+                                    <Button Grid.Row="3"
+                                            Text="Configure Module"
+                                            BackgroundColor="{StaticResource Primary}"
+                                            IsEnabled="{Binding IsEnabled}"
+                                            HorizontalOptions="End"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

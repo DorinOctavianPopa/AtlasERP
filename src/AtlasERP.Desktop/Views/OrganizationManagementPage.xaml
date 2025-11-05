@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtlasERP.Desktop.Views.OrganizationManagementPage"
+             xmlns:viewmodels="clr-namespace:AtlasERP.Desktop.ViewModels"
+             xmlns:models="clr-namespace:AtlasERP.Core.Models;assembly=AtlasERP.Core"
+             x:DataType="viewmodels:OrganizationManagementPageViewModel"
+             Title="{Binding Title}">
+
+    <Grid RowDefinitions="Auto,*" Padding="30" RowSpacing="20">
+        
+        <!-- Header -->
+        <VerticalStackLayout Grid.Row="0" Spacing="10">
+            <Label Text="Organization Management"
+                   FontSize="32"
+                   FontAttributes="Bold"/>
+            
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="➕ Add Organization"
+                        Command="{Binding AddOrganizationCommand}"
+                        BackgroundColor="{StaticResource Success}"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <!-- Organizations Grid -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="15">
+                <CollectionView ItemsSource="{Binding Organizations}"
+                              SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Organization">
+                            <Border StrokeThickness="1"
+                                    StrokeShape="RoundRectangle 10"
+                                    Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                                    Padding="20"
+                                    Margin="0,5">
+                                
+                                <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="10">
+                                    
+                                    <!-- Header Row -->
+                                    <Grid Grid.Row="0" ColumnDefinitions="*,Auto">
+                                        <Label Grid.Column="0"
+                                               Text="{Binding Name}"
+                                               FontSize="20"
+                                               FontAttributes="Bold"/>
+                                        <HorizontalStackLayout Grid.Column="1" Spacing="5">
+                                            <Button Text="✏️"
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:OrganizationManagementPageViewModel}}, Path=EditOrganizationCommand}"
+                                                    CommandParameter="{Binding .}"
+                                                    WidthRequest="40"
+                                                    Padding="0"/>
+                                            <Button Text="🗑️"
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:OrganizationManagementPageViewModel}}, Path=DeleteOrganizationCommand}"
+                                                    CommandParameter="{Binding .}"
+                                                    BackgroundColor="{StaticResource Error}"
+                                                    WidthRequest="40"
+                                                    Padding="0"/>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+
+                                    <!-- Description -->
+                                    <Label Grid.Row="1"
+                                           Text="{Binding Description}"
+                                           TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+
+                                    <!-- Contact Info -->
+                                    <Grid Grid.Row="2" ColumnDefinitions="Auto,*,Auto,*" ColumnSpacing="15" RowDefinitions="Auto,Auto" RowSpacing="5">
+                                        <Label Grid.Row="0" Grid.Column="0" Text="📧" FontSize="14"/>
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Email}" FontSize="12"/>
+                                        <Label Grid.Row="0" Grid.Column="2" Text="📞" FontSize="14"/>
+                                        <Label Grid.Row="0" Grid.Column="3" Text="{Binding PhoneNumber}" FontSize="12"/>
+                                        <Label Grid.Row="1" Grid.Column="0" Text="📍" FontSize="14"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Address}" FontSize="12"/>
+                                    </Grid>
+
+                                    <!-- Status -->
+                                    <HorizontalStackLayout Grid.Row="3" Spacing="10">
+                                        <Border BackgroundColor="{Binding IsActive, Converter={StaticResource BoolToColorConverter}, ConverterParameter='Success|Error'}"
+                                                StrokeThickness="0"
+                                                Padding="8,4"
+                                                StrokeShape="RoundRectangle 4">
+                                            <Label Text="{Binding IsActive, Converter={StaticResource BoolToTextConverter}, ConverterParameter='Active|Inactive'}"
+                                                   TextColor="White"
+                                                   FontSize="10"/>
+                                        </Border>
+                                        <Label Text="{Binding EnabledModules.Count, StringFormat='{0} modules enabled'}"
+                                               FontSize="12"
+                                               VerticalOptions="Center"
+                                               TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                                    </HorizontalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

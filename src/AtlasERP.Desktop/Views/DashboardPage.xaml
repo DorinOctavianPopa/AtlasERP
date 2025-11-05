@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtlasERP.Desktop.Views.DashboardPage"
+             xmlns:viewmodels="clr-namespace:AtlasERP.Desktop.ViewModels"
+             x:DataType="viewmodels:DashboardPageViewModel"
+             Title="{Binding Title}">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+            <Label Text="Dashboard"
+                   FontSize="32"
+                   FontAttributes="Bold"/>
+            
+            <Label Text="Your business overview at a glance"
+                   FontSize="16"
+                   TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+
+            <!-- Charts and Metrics would go here -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="15" Margin="0,20,0,0">
+                
+                <Border Grid.Column="0" Grid.Row="0"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 10"
+                        Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                        Padding="20">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Sales Overview" FontSize="18" FontAttributes="Bold"/>
+                        <Label Text="$125,430" FontSize="32" TextColor="{StaticResource Success}"/>
+                        <Label Text="+12% from last month" FontSize="12" TextColor="{StaticResource Success}"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Column="1" Grid.Row="0"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 10"
+                        Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                        Padding="20">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Inventory Status" FontSize="18" FontAttributes="Bold"/>
+                        <Label Text="842 Items" FontSize="32" TextColor="{StaticResource Info}"/>
+                        <Label Text="23 low stock alerts" FontSize="12" TextColor="{StaticResource Warning}"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Column="0" Grid.Row="1"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 10"
+                        Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                        Padding="20">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Active Employees" FontSize="18" FontAttributes="Bold"/>
+                        <Label Text="156" FontSize="32" TextColor="{StaticResource Primary}"/>
+                        <Label Text="3 new this month" FontSize="12" TextColor="{StaticResource Success}"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Column="1" Grid.Row="1"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 10"
+                        Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                        Padding="20">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Pending Transactions" FontSize="18" FontAttributes="Bold"/>
+                        <Label Text="38" FontSize="32" TextColor="{StaticResource Warning}"/>
+                        <Label Text="Requires approval" FontSize="12" TextColor="{StaticResource Warning}"/>
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

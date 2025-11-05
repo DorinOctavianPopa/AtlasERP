@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtlasERP.Desktop.Views.LoginPage"
+             xmlns:viewmodels="clr-namespace:AtlasERP.Desktop.ViewModels"
+             x:DataType="viewmodels:LoginPageViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="40" VerticalOptions="Center">
+            
+            <!-- Logo/Title -->
+            <Label Text="AtlasERP"
+                   FontSize="42"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource Primary}"
+                   Margin="0,0,0,30"/>
+
+            <Label Text="Enterprise Resource Planning"
+                   FontSize="16"
+                   HorizontalOptions="Center"
+                   TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"
+                   Margin="0,0,0,50"/>
+
+            <!-- Login Form -->
+            <Border StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray950}}"
+                    Padding="30"
+                    MaximumWidthRequest="500"
+                    HorizontalOptions="Center">
+                
+                <VerticalStackLayout Spacing="20">
+                    
+                    <Label Text="Sign In"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,10"/>
+
+                    <!-- Username -->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Username"
+                               FontSize="14"
+                               TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                        <Border StrokeThickness="1"
+                                StrokeShape="RoundRectangle 8"
+                                Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+                            <Entry Text="{Binding Username}"
+                                   Placeholder="Enter your username"
+                                   Margin="10,0"/>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Password -->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Password"
+                               FontSize="14"
+                               TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                        <Border StrokeThickness="1"
+                                StrokeShape="RoundRectangle 8"
+                                Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+                            <Entry Text="{Binding Password}"
+                                   Placeholder="Enter your password"
+                                   IsPassword="True"
+                                   Margin="10,0"/>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Error Message -->
+                    <Label Text="{Binding ErrorMessage}"
+                           TextColor="{StaticResource Error}"
+                           IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyConverter}}"
+                           FontSize="12"
+                           HorizontalOptions="Center"/>
+
+                    <!-- Login Button -->
+                    <Button Text="Sign In"
+                            Command="{Binding LoginCommand}"
+                            Margin="0,10,0,0"
+                            HeightRequest="50"
+                            FontSize="16"
+                            FontAttributes="Bold"/>
+
+                    <!-- Loading Indicator -->
+                    <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                     IsVisible="{Binding IsBusy}"
+                                     Color="{StaticResource Primary}"
+                                     HeightRequest="40"/>
+
+                    <!-- Demo Info -->
+                    <Border StrokeThickness="1"
+                            StrokeShape="RoundRectangle 8"
+                            Stroke="{StaticResource Info}"
+                            BackgroundColor="{AppThemeBinding Light=#EBF5FB, Dark=#1A2332}"
+                            Padding="15"
+                            Margin="0,20,0,0">
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Demo Mode"
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource Info}"/>
+                            <Label Text="Use any username/password to login"
+                                   FontSize="11"
+                                   TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                            <Label Text="Use 'admin' as username for admin role"
+                                   FontSize="11"
+                                   TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
