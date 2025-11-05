@@ -25,7 +25,7 @@
                            FontSize="20"
                            FontAttributes="Bold"/>
 
-                    <Label Text="Select your preferred language / Seleccionați limba preferată / Selecciona tu idioma preferido"
+                    <Label Text="{ext:Localize LanguageSelectionInfo}"
                            FontSize="14"
                            TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
 
@@ -94,11 +94,17 @@
                             Padding="15"
                             Margin="0,10,0,0">
                         <VerticalStackLayout Spacing="5">
-                            <Label Text="ℹ️ Language will change immediately"
-                                   FontSize="12"
+                            <Label FontSize="12"
                                    FontAttributes="Bold"
-                                   TextColor="{StaticResource Info}"/>
-                            <Label Text="The interface language will update as soon as you select a different option"
+                                   TextColor="{StaticResource Info}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="ℹ️ " />
+                                        <Span Text="{Binding Source={ext:Localize LanguageChangeInfo}}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Text="{ext:Localize LanguageChangeDescription}"
                                    FontSize="11"
                                    TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
                         </VerticalStackLayout>

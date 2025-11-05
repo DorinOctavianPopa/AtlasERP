@@ -418,5 +418,23 @@ namespace AtlasERP.Core.Resources {
                 return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
+        
+        public static string LanguageSelectionInfo {
+            get {
+                return ResourceManager.GetString("LanguageSelectionInfo", resourceCulture);
+            }
+        }
+        
+        public static string LanguageChangeInfo {
+            get {
+                return ResourceManager.GetString("LanguageChangeInfo", resourceCulture);
+            }
+        }
+        
+        public static string LanguageChangeDescription {
+            get {
+                return ResourceManager.GetString("LanguageChangeDescription", resourceCulture);
+            }
+        }
     }
 }

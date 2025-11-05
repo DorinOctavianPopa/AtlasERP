@@ -264,4 +264,13 @@
   <data name="Settings" xml:space="preserve">
     <value>Configuración</value>
   </data>
+  <data name="LanguageSelectionInfo" xml:space="preserve">
+    <value>Selecciona tu idioma preferido</value>
+  </data>
+  <data name="LanguageChangeInfo" xml:space="preserve">
+    <value>El idioma cambiará inmediatamente</value>
+  </data>
+  <data name="LanguageChangeDescription" xml:space="preserve">
+    <value>El idioma de la interfaz se actualizará tan pronto como seleccione una opción diferente</value>
+  </data>
 </root>

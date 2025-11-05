@@ -264,4 +264,13 @@
   <data name="Settings" xml:space="preserve">
     <value>Setări</value>
   </data>
+  <data name="LanguageSelectionInfo" xml:space="preserve">
+    <value>Selecționați limba preferată</value>
+  </data>
+  <data name="LanguageChangeInfo" xml:space="preserve">
+    <value>Limba se va schimba imediat</value>
+  </data>
+  <data name="LanguageChangeDescription" xml:space="preserve">
+    <value>Limba interfeței se va actualiza imediat ce selectați o altă opțiune</value>
+  </data>
 </root>
