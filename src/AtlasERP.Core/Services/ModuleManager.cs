@@ -14,6 +14,7 @@ public class ModuleManager : IModuleManager
         if (!_modules.Any(m => m.ModuleId == module.ModuleId))
         {
             _modules.Add(module);
+            module.Initialize();
         }
     }
 
