@@ -4,6 +4,7 @@
              x:Class="AtlasERP.Desktop.Views.UserManagementPage"
              xmlns:viewmodels="clr-namespace:AtlasERP.Desktop.ViewModels"
              xmlns:models="clr-namespace:AtlasERP.Core.Models;assembly=AtlasERP.Core"
+             xmlns:ext="clr-namespace:AtlasERP.Desktop.Extensions"
              x:DataType="viewmodels:UserManagementPageViewModel"
              Title="{Binding Title}">
 
@@ -11,14 +12,19 @@
         
         <!-- Header -->
         <VerticalStackLayout Grid.Row="0" Spacing="10">
-            <Label Text="User Management"
+            <Label Text="{ext:Localize UserManagementTitle}"
                    FontSize="32"
                    FontAttributes="Bold"/>
             
             <HorizontalStackLayout Spacing="10">
-                <Button Text="➕ Add User"
-                        Command="{Binding AddUserCommand}"
-                        BackgroundColor="{StaticResource Success}"/>
+                <Button Command="{Binding AddUserCommand}"
+                        BackgroundColor="{StaticResource Success}">
+                    <Button.Text>
+                        <MultiBinding StringFormat="➕ {0}">
+                            <Binding Source="{ext:Localize AddUser}" />
+                        </MultiBinding>
+                    </Button.Text>
+                </Button>
             </HorizontalStackLayout>
         </VerticalStackLayout>
 
@@ -34,11 +40,11 @@
                     <Grid Padding="15"
                           BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
                           ColumnDefinitions="*,*,*,*,Auto">
-                        <Label Grid.Column="0" Text="Username" FontAttributes="Bold"/>
-                        <Label Grid.Column="1" Text="Name" FontAttributes="Bold"/>
-                        <Label Grid.Column="2" Text="Email" FontAttributes="Bold"/>
-                        <Label Grid.Column="3" Text="Role" FontAttributes="Bold"/>
-                        <Label Grid.Column="4" Text="Actions" FontAttributes="Bold"/>
+                        <Label Grid.Column="0" Text="{ext:Localize Username}" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="{ext:Localize FullName}" FontAttributes="Bold"/>
+                        <Label Grid.Column="2" Text="{ext:Localize Email}" FontAttributes="Bold"/>
+                        <Label Grid.Column="3" Text="{ext:Localize Role}" FontAttributes="Bold"/>
+                        <Label Grid.Column="4" Text="{ext:Localize Actions}" FontAttributes="Bold"/>
                     </Grid>
                 </CollectionView.Header>
                 

@@ -4,6 +4,7 @@
              x:Class="AtlasERP.Desktop.Views.OrganizationManagementPage"
              xmlns:viewmodels="clr-namespace:AtlasERP.Desktop.ViewModels"
              xmlns:models="clr-namespace:AtlasERP.Core.Models;assembly=AtlasERP.Core"
+             xmlns:ext="clr-namespace:AtlasERP.Desktop.Extensions"
              x:DataType="viewmodels:OrganizationManagementPageViewModel"
              Title="{Binding Title}">
 
@@ -11,14 +12,19 @@
         
         <!-- Header -->
         <VerticalStackLayout Grid.Row="0" Spacing="10">
-            <Label Text="Organization Management"
+            <Label Text="{ext:Localize OrganizationManagementTitle}"
                    FontSize="32"
                    FontAttributes="Bold"/>
             
             <HorizontalStackLayout Spacing="10">
-                <Button Text="➕ Add Organization"
-                        Command="{Binding AddOrganizationCommand}"
-                        BackgroundColor="{StaticResource Success}"/>
+                <Button Command="{Binding AddOrganizationCommand}"
+                        BackgroundColor="{StaticResource Success}">
+                    <Button.Text>
+                        <MultiBinding StringFormat="➕ {0}">
+                            <Binding Source="{ext:Localize AddOrganization}" />
+                        </MultiBinding>
+                    </Button.Text>
+                </Button>
             </HorizontalStackLayout>
         </VerticalStackLayout>
 

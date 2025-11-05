@@ -67,6 +67,14 @@ public partial class MainPageViewModel : ViewModelBase
             Section = "Administration"
         });
 
+        MenuItems.Add(new MenuItem
+        {
+            Title = Core.Resources.AppResources.Settings,
+            Icon = "⚙️",
+            NavigationPage = "SettingsPage",
+            Section = "Administration"
+        });
+
         // Modules Section - Dynamic based on registered modules
         var modules = _moduleManager.GetModules();
         foreach (var module in modules)

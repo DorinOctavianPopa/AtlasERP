@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtlasERP.Desktop.Views.SettingsPage"
+             xmlns:viewmodels="clr-namespace:AtlasERP.Desktop.ViewModels"
+             xmlns:ext="clr-namespace:AtlasERP.Desktop.Extensions"
+             x:DataType="viewmodels:SettingsPageViewModel"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+            
+            <Label Text="{ext:Localize Settings}"
+                   FontSize="32"
+                   FontAttributes="Bold"/>
+
+            <!-- Language Settings -->
+            <Border StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                    Padding="20">
+                
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="{ext:Localize Language}"
+                           FontSize="20"
+                           FontAttributes="Bold"/>
+
+                    <Label Text="Select your preferred language / Seleccionați limba preferată / Selecciona tu idioma preferido"
+                           FontSize="14"
+                           TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+
+                    <!-- Language Picker -->
+                    <Border StrokeThickness="1"
+                            StrokeShape="RoundRectangle 8"
+                            Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}"
+                            Padding="10">
+                        <Picker ItemsSource="{Binding AvailableCultures}"
+                                SelectedItem="{Binding SelectedCulture}"
+                                Title="{ext:Localize Language}">
+                            <Picker.ItemDisplayBinding>
+                                <Binding Path="DisplayName"/>
+                            </Picker.ItemDisplayBinding>
+                        </Picker>
+                    </Border>
+
+                    <!-- Language Info Cards -->
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10" Margin="0,10,0,0">
+                        <Border Grid.Column="0"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 8"
+                                Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                                Padding="15">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="🇬🇧" FontSize="32" HorizontalOptions="Center"/>
+                                <Label Text="English" FontSize="14" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                <Label Text="English" FontSize="11" HorizontalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <Border Grid.Column="1"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 8"
+                                Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                                Padding="15">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="🇷🇴" FontSize="32" HorizontalOptions="Center"/>
+                                <Label Text="Română" FontSize="14" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                <Label Text="Romanian" FontSize="11" HorizontalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <Border Grid.Column="2"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 8"
+                                Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                                Padding="15">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="🇪🇸" FontSize="32" HorizontalOptions="Center"/>
+                                <Label Text="Español" FontSize="14" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                <Label Text="Spanish" FontSize="11" HorizontalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+
+                    <!-- Info Box -->
+                    <Border StrokeThickness="1"
+                            StrokeShape="RoundRectangle 8"
+                            Stroke="{StaticResource Info}"
+                            BackgroundColor="{AppThemeBinding Light=#EBF5FB, Dark=#1A2332}"
+                            Padding="15"
+                            Margin="0,10,0,0">
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="ℹ️ Language will change immediately"
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource Info}"/>
+                            <Label Text="The interface language will update as soon as you select a different option"
+                                   FontSize="11"
+                                   TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
