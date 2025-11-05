@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AtlasERP.Desktop.Views.LoginPage"
              xmlns:viewmodels="clr-namespace:AtlasERP.Desktop.ViewModels"
+             xmlns:ext="clr-namespace:AtlasERP.Desktop.Extensions"
              x:DataType="viewmodels:LoginPageViewModel"
              Title="{Binding Title}"
              BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
@@ -11,14 +12,14 @@
         <VerticalStackLayout Spacing="20" Padding="40" VerticalOptions="Center">
             
             <!-- Logo/Title -->
-            <Label Text="AtlasERP"
+            <Label Text="{ext:Localize AppName}"
                    FontSize="42"
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
                    TextColor="{StaticResource Primary}"
                    Margin="0,0,0,30"/>
 
-            <Label Text="Enterprise Resource Planning"
+            <Label Text="{ext:Localize AppSubtitle}"
                    FontSize="16"
                    HorizontalOptions="Center"
                    TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"
@@ -35,7 +36,7 @@
                 
                 <VerticalStackLayout Spacing="20">
                     
-                    <Label Text="Sign In"
+                    <Label Text="{ext:Localize SignIn}"
                            FontSize="24"
                            FontAttributes="Bold"
                            HorizontalOptions="Center"
@@ -43,7 +44,7 @@
 
                     <!-- Username -->
                     <VerticalStackLayout Spacing="8">
-                        <Label Text="Username"
+                        <Label Text="{ext:Localize Username}"
                                FontSize="14"
                                TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
                         <Border StrokeThickness="1"
@@ -51,14 +52,14 @@
                                 Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
                                 BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
                             <Entry Text="{Binding Username}"
-                                   Placeholder="Enter your username"
+                                   Placeholder="{ext:Localize EnterUsername}"
                                    Margin="10,0"/>
                         </Border>
                     </VerticalStackLayout>
 
                     <!-- Password -->
                     <VerticalStackLayout Spacing="8">
-                        <Label Text="Password"
+                        <Label Text="{ext:Localize Password}"
                                FontSize="14"
                                TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
                         <Border StrokeThickness="1"
@@ -66,7 +67,7 @@
                                 Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
                                 BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
                             <Entry Text="{Binding Password}"
-                                   Placeholder="Enter your password"
+                                   Placeholder="{ext:Localize EnterPassword}"
                                    IsPassword="True"
                                    Margin="10,0"/>
                         </Border>
@@ -80,7 +81,7 @@
                            HorizontalOptions="Center"/>
 
                     <!-- Login Button -->
-                    <Button Text="Sign In"
+                    <Button Text="{ext:Localize SignIn}"
                             Command="{Binding LoginCommand}"
                             Margin="0,10,0,0"
                             HeightRequest="50"
@@ -101,14 +102,14 @@
                             Padding="15"
                             Margin="0,20,0,0">
                         <VerticalStackLayout Spacing="5">
-                            <Label Text="Demo Mode"
+                            <Label Text="{ext:Localize DemoMode}"
                                    FontSize="12"
                                    FontAttributes="Bold"
                                    TextColor="{StaticResource Info}"/>
-                            <Label Text="Use any username/password to login"
+                            <Label Text="{ext:Localize DemoModeInfo}"
                                    FontSize="11"
                                    TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
-                            <Label Text="Use 'admin' as username for admin role"
+                            <Label Text="{ext:Localize DemoAdminInfo}"
                                    FontSize="11"
                                    TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
                         </VerticalStackLayout>

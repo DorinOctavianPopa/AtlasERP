@@ -29,6 +29,7 @@ public static class MauiProgram
         // Register Core Services
         builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
         builder.Services.AddSingleton<IModuleManager, ModuleManager>();
+        builder.Services.AddSingleton<ILocalizationService, LocalizationService>();
 
         // Register Views
         builder.Services.AddTransient<LoginPage>();
