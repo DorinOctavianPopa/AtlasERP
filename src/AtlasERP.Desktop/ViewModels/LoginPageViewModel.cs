@@ -1,62 +1,33 @@
 using AtlasERP.Core.Interfaces;
-using Prism.Commands;
-using Prism.Navigation;
-using System.Windows.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace AtlasERP.Desktop.ViewModels;
 
-public class LoginPageViewModel : ViewModelBase, INavigatedAware
+public partial class LoginPageViewModel : ViewModelBase
 {
     private readonly IAuthenticationService _authService;
-    private readonly INavigationService _navigationService;
 
+    [ObservableProperty]
     private string _username = string.Empty;
-    public string Username
-    {
-        get => _username;
-        set => SetProperty(ref _username, value);
-    }
 
+    [ObservableProperty]
     private string _password = string.Empty;
-    public string Password
-    {
-        get => _password;
-        set => SetProperty(ref _password, value);
-    }
 
+    [ObservableProperty]
     private bool _isBusy;
-    public bool IsBusy
-    {
-        get => _isBusy;
-        set => SetProperty(ref _isBusy, value);
-    }
 
+    [ObservableProperty]
     private string? _errorMessage;
-    public string? ErrorMessage
-    {
-        get => _errorMessage;
-        set => SetProperty(ref _errorMessage, value);
-    }
 
-    public ICommand LoginCommand { get; }
-
-    public LoginPageViewModel(IAuthenticationService authService, INavigationService navigationService)
+    public LoginPageViewModel(IAuthenticationService authService)
     {
         _authService = authService;
-        _navigationService = navigationService;
         Title = "AtlasERP - Login";
-
-        LoginCommand = new DelegateCommand(async () => await ExecuteLoginCommand(), CanExecuteLogin)
-            .ObservesProperty(() => Username)
-            .ObservesProperty(() => Password);
     }
 
-    private bool CanExecuteLogin()
-    {
-        return !string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password);
-    }
-
-    private async Task ExecuteLoginCommand()
+    [RelayCommand(CanExecute = nameof(CanExecuteLogin))]
+    private async Task LoginAsync()
     {
         IsBusy = true;
         ErrorMessage = null;
@@ -67,7 +38,11 @@ public class LoginPageViewModel : ViewModelBase, INavigatedAware
 
             if (result)
             {
-                await _navigationService.NavigateAsync("/NavigationPage/MainPage");
+                var mainPage = MauiProgram.Services.GetService<Views.MainPage>();
+                if (mainPage != null && Application.Current?.Windows[0].Page is NavigationPage navPage)
+                {
+                    await navPage.PushAsync(mainPage);
+                }
             }
             else
             {
@@ -84,15 +59,18 @@ public class LoginPageViewModel : ViewModelBase, INavigatedAware
         }
     }
 
-    public void OnNavigatedFrom(INavigationParameters parameters)
+    private bool CanExecuteLogin()
     {
+        return !string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password);
     }
 
-    public void OnNavigatedTo(INavigationParameters parameters)
+    partial void OnUsernameChanged(string value)
     {
-        // Reset fields when navigating to login
-        Username = string.Empty;
-        Password = string.Empty;
-        ErrorMessage = null;
+        LoginCommand.NotifyCanExecuteChanged();
+    }
+
+    partial void OnPasswordChanged(string value)
+    {
+        LoginCommand.NotifyCanExecuteChanged();
     }
 }

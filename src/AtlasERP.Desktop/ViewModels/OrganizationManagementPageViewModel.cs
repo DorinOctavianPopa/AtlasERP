@@ -1,26 +1,16 @@
 using AtlasERP.Core.Models;
-using Prism.Commands;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 
 namespace AtlasERP.Desktop.ViewModels;
 
-public class OrganizationManagementPageViewModel : ViewModelBase
+public partial class OrganizationManagementPageViewModel : ViewModelBase
 {
     public ObservableCollection<Organization> Organizations { get; } = new();
-
-    public ICommand AddOrganizationCommand { get; }
-    public ICommand EditOrganizationCommand { get; }
-    public ICommand DeleteOrganizationCommand { get; }
 
     public OrganizationManagementPageViewModel()
     {
         Title = "Organization Management";
-
-        AddOrganizationCommand = new DelegateCommand(ExecuteAddOrganization);
-        EditOrganizationCommand = new DelegateCommand<Organization>(ExecuteEditOrganization);
-        DeleteOrganizationCommand = new DelegateCommand<Organization>(ExecuteDeleteOrganization);
-
         LoadSampleData();
     }
 
@@ -49,7 +39,8 @@ public class OrganizationManagementPageViewModel : ViewModelBase
         });
     }
 
-    private void ExecuteAddOrganization()
+    [RelayCommand]
+    private void AddOrganization()
     {
         var newOrg = new Organization
         {
@@ -60,7 +51,8 @@ public class OrganizationManagementPageViewModel : ViewModelBase
         Organizations.Add(newOrg);
     }
 
-    private void ExecuteEditOrganization(Organization? org)
+    [RelayCommand]
+    private void EditOrganization(Organization? org)
     {
         if (org != null)
         {
@@ -68,7 +60,8 @@ public class OrganizationManagementPageViewModel : ViewModelBase
         }
     }
 
-    private void ExecuteDeleteOrganization(Organization? org)
+    [RelayCommand]
+    private void DeleteOrganization(Organization? org)
     {
         if (org != null)
         {

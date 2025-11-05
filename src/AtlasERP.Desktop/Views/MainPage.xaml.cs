@@ -1,10 +1,13 @@
+using AtlasERP.Desktop.ViewModels;
+
 namespace AtlasERP.Desktop.Views;
 
 public partial class MainPage : ContentPage
 {
-    public MainPage()
+    public MainPage(MainPageViewModel viewModel)
     {
         InitializeComponent();
+        BindingContext = viewModel;
     }
 
     private void OnPointerEntered(object sender, PointerEventArgs e)

@@ -1,8 +1,6 @@
-using Prism.Navigation;
-
 namespace AtlasERP.Desktop.ViewModels;
 
-public class DashboardPageViewModel : ViewModelBase
+public partial class DashboardPageViewModel : ViewModelBase
 {
     public DashboardPageViewModel()
     {

@@ -4,23 +4,18 @@ using AtlasERP.Desktop.ViewModels;
 using AtlasERP.Desktop.Views;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using Prism.DryIoc;
-using Prism.Ioc;
 
 namespace AtlasERP.Desktop;
 
 public static class MauiProgram
 {
+    public static IServiceProvider Services { get; private set; } = default!;
+
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
-            .UsePrism(prism =>
-            {
-                prism.RegisterTypes(RegisterTypes)
-                     .OnAppStart("NavigationPage/LoginPage");
-            })
             .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
             {
@@ -33,22 +28,28 @@ public static class MauiProgram
         builder.Logging.AddDebug();
 #endif
 
-        return builder.Build();
-    }
-
-    private static void RegisterTypes(IContainerRegistry containerRegistry)
-    {
         // Register Core Services
-        containerRegistry.RegisterSingleton<IAuthenticationService, AuthenticationService>();
-        containerRegistry.RegisterSingleton<IModuleManager, ModuleManager>();
+        builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
+        builder.Services.AddSingleton<IModuleManager, ModuleManager>();
 
-        // Register Navigation Pages
-        containerRegistry.RegisterForNavigation<NavigationPage>();
-        containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
-        containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
-        containerRegistry.RegisterForNavigation<DashboardPage, DashboardPageViewModel>();
-        containerRegistry.RegisterForNavigation<UserManagementPage, UserManagementPageViewModel>();
-        containerRegistry.RegisterForNavigation<OrganizationManagementPage, OrganizationManagementPageViewModel>();
-        containerRegistry.RegisterForNavigation<ModuleManagementPage, ModuleManagementPageViewModel>();
+        // Register Views
+        builder.Services.AddTransient<LoginPage>();
+        builder.Services.AddTransient<MainPage>();
+        builder.Services.AddTransient<DashboardPage>();
+        builder.Services.AddTransient<UserManagementPage>();
+        builder.Services.AddTransient<OrganizationManagementPage>();
+        builder.Services.AddTransient<ModuleManagementPage>();
+
+        // Register ViewModels
+        builder.Services.AddTransient<LoginPageViewModel>();
+        builder.Services.AddTransient<MainPageViewModel>();
+        builder.Services.AddTransient<DashboardPageViewModel>();
+        builder.Services.AddTransient<UserManagementPageViewModel>();
+        builder.Services.AddTransient<OrganizationManagementPageViewModel>();
+        builder.Services.AddTransient<ModuleManagementPageViewModel>();
+
+        var app = builder.Build();
+        Services = app.Services;
+        return app;
     }
 }

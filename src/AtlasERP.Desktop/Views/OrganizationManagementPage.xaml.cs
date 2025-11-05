@@ -1,9 +1,12 @@
+using AtlasERP.Desktop.ViewModels;
+
 namespace AtlasERP.Desktop.Views;
 
 public partial class OrganizationManagementPage : ContentPage
 {
-    public OrganizationManagementPage()
+    public OrganizationManagementPage(OrganizationManagementPageViewModel viewModel)
     {
         InitializeComponent();
+        BindingContext = viewModel;
     }
 }
