@@ -45,6 +45,9 @@
                     </Border>
 
                     <!-- Language Info Cards -->
+                    <!-- Note: Native language names (English, Română, Español) are intentionally hardcoded 
+                         to help users identify their language regardless of current UI language. 
+                         This is a standard UX pattern for language selectors. -->
                     <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10" Margin="0,10,0,0">
                         <Border Grid.Column="0"
                                 StrokeThickness="1"
@@ -54,8 +57,6 @@
                             <VerticalStackLayout Spacing="5">
                                 <Label Text="🇬🇧" FontSize="32" HorizontalOptions="Center"/>
                                 <Label Text="English" FontSize="14" HorizontalOptions="Center" FontAttributes="Bold"/>
-                                <Label Text="English" FontSize="11" HorizontalOptions="Center"
-                                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
                             </VerticalStackLayout>
                         </Border>
 
@@ -67,8 +68,6 @@
                             <VerticalStackLayout Spacing="5">
                                 <Label Text="🇷🇴" FontSize="32" HorizontalOptions="Center"/>
                                 <Label Text="Română" FontSize="14" HorizontalOptions="Center" FontAttributes="Bold"/>
-                                <Label Text="Romanian" FontSize="11" HorizontalOptions="Center"
-                                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
                             </VerticalStackLayout>
                         </Border>
 
@@ -80,8 +79,6 @@
                             <VerticalStackLayout Spacing="5">
                                 <Label Text="🇪🇸" FontSize="32" HorizontalOptions="Center"/>
                                 <Label Text="Español" FontSize="14" HorizontalOptions="Center" FontAttributes="Bold"/>
-                                <Label Text="Spanish" FontSize="11" HorizontalOptions="Center"
-                                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray400}}"/>
                             </VerticalStackLayout>
                         </Border>
                     </Grid>

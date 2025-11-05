@@ -70,7 +70,7 @@ public partial class MainPageViewModel : ViewModelBase
         MenuItems.Add(new MenuItem
         {
             Title = Core.Resources.AppResources.Settings,
-            Icon = "⚙️",
+            Icon = "🔧",
             NavigationPage = "SettingsPage",
             Section = "Administration"
         });
