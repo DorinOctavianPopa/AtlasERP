@@ -1,3 +1,5 @@
+using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
 using Microsoft.UI.Xaml;
 
 namespace AtlasERP.Desktop.WinUI;

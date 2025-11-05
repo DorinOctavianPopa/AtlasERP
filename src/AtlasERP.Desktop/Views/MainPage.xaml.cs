@@ -1,4 +1,7 @@
 using AtlasERP.Desktop.ViewModels;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
 
 namespace AtlasERP.Desktop.Views;
 
@@ -14,7 +17,7 @@ public partial class MainPage : ContentPage
     {
         if (sender is Grid grid)
         {
-            grid.BackgroundColor = Application.Current?.RequestedTheme == AppTheme.Dark
+            grid.BackgroundColor = Application.Current?.RequestedTheme == Microsoft.Maui.ApplicationModel.AppTheme.Dark
                 ? Color.FromRgba("#2A2A2A")
                 : Color.FromRgba("#F5F5F5");
         }

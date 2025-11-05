@@ -1,4 +1,7 @@
 using AtlasERP.Core.Resources;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
+using System;
 using System.ComponentModel;
 
 namespace AtlasERP.Desktop.Extensions;

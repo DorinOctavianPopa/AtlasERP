@@ -3,7 +3,10 @@ using AtlasERP.Core.Services;
 using AtlasERP.Desktop.ViewModels;
 using AtlasERP.Desktop.Views;
 using CommunityToolkit.Maui;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Controls.Hosting;
+using Microsoft.Maui.Hosting;
 
 namespace AtlasERP.Desktop;
 
@@ -27,9 +30,9 @@ public static class MauiProgram
 #endif
 
         // Register Core Services
-        builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
-        builder.Services.AddSingleton<IModuleManager, ModuleManager>();
-        builder.Services.AddSingleton<ILocalizationService, LocalizationService>();
+        builder.Services.AddSingleton<IAuthenticationService>(sp => new AuthenticationService());
+        builder.Services.AddSingleton<IModuleManager>(sp => new ModuleManager());
+        builder.Services.AddSingleton<ILocalizationService>(sp => new LocalizationService());
 
         // Register Views
         builder.Services.AddTransient<LoginPage>();

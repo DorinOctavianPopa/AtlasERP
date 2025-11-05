@@ -1,5 +1,6 @@
 using AtlasERP.Core.Models;
 using CommunityToolkit.Mvvm.Input;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace AtlasERP.Desktop.ViewModels;
