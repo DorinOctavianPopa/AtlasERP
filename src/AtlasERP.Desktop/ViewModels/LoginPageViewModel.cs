@@ -7,6 +7,7 @@ namespace AtlasERP.Desktop.ViewModels;
 public partial class LoginPageViewModel : ViewModelBase
 {
     private readonly IAuthenticationService _authService;
+    private readonly IServiceProvider _serviceProvider;
 
     [ObservableProperty]
     private string _username = string.Empty;
@@ -20,9 +21,10 @@ public partial class LoginPageViewModel : ViewModelBase
     [ObservableProperty]
     private string? _errorMessage;
 
-    public LoginPageViewModel(IAuthenticationService authService)
+    public LoginPageViewModel(IAuthenticationService authService, IServiceProvider serviceProvider)
     {
         _authService = authService;
+        _serviceProvider = serviceProvider;
         Title = "AtlasERP - Login";
     }
 
@@ -38,7 +40,7 @@ public partial class LoginPageViewModel : ViewModelBase
 
             if (result)
             {
-                var mainPage = MauiProgram.Services.GetService<Views.MainPage>();
+                var mainPage = _serviceProvider.GetService<Views.MainPage>();
                 if (mainPage != null && Application.Current?.Windows[0].Page is NavigationPage navPage)
                 {
                     await navPage.PushAsync(mainPage);

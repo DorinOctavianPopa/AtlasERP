@@ -9,6 +9,7 @@ public partial class MainPageViewModel : ViewModelBase
 {
     private readonly IAuthenticationService _authService;
     private readonly IModuleManager _moduleManager;
+    private readonly IServiceProvider _serviceProvider;
 
     [ObservableProperty]
     private string _welcomeMessage = string.Empty;
@@ -17,10 +18,12 @@ public partial class MainPageViewModel : ViewModelBase
 
     public MainPageViewModel(
         IAuthenticationService authService,
-        IModuleManager moduleManager)
+        IModuleManager moduleManager,
+        IServiceProvider serviceProvider)
     {
         _authService = authService;
         _moduleManager = moduleManager;
+        _serviceProvider = serviceProvider;
         Title = "AtlasERP - Main";
 
         InitializeMenu();
@@ -86,7 +89,7 @@ public partial class MainPageViewModel : ViewModelBase
             var pageType = Type.GetType($"AtlasERP.Desktop.Views.{page}, AtlasERP.Desktop");
             if (pageType != null)
             {
-                var pageInstance = MauiProgram.Services.GetService(pageType) as Page;
+                var pageInstance = _serviceProvider.GetService(pageType) as Page;
                 if (pageInstance != null)
                 {
                     await Application.Current.Windows[0].Page.Navigation.PushAsync(pageInstance);
@@ -100,7 +103,7 @@ public partial class MainPageViewModel : ViewModelBase
     {
         await _authService.LogoutAsync();
         
-        if (Application.Current?.Windows[0].Page is NavigationPage navPage)
+        if (Application.Current?.Windows.FirstOrDefault()?.Page is NavigationPage navPage)
         {
             await navPage.PopToRootAsync();
         }

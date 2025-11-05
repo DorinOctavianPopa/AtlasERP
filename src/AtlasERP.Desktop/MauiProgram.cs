@@ -9,8 +9,6 @@ namespace AtlasERP.Desktop;
 
 public static class MauiProgram
 {
-    public static IServiceProvider Services { get; private set; } = default!;
-
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp.CreateBuilder();
@@ -48,8 +46,6 @@ public static class MauiProgram
         builder.Services.AddTransient<OrganizationManagementPageViewModel>();
         builder.Services.AddTransient<ModuleManagementPageViewModel>();
 
-        var app = builder.Build();
-        Services = app.Services;
-        return app;
+        return builder.Build();
     }
 }
