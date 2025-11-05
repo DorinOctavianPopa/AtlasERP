@@ -2,7 +2,7 @@
 
 ## Overview
 
-AtlasERP follows a modular, layered architecture built on .NET MAUI with Prism framework for MVVM pattern and dependency injection.
+AtlasERP follows a modular, layered architecture built on .NET MAUI with CommunityToolkit.Mvvm for MVVM pattern and built-in .NET Dependency Injection.
 
 ## Architecture Diagram
 
@@ -70,8 +70,9 @@ AtlasERP follows a modular, layered architecture built on .NET MAUI with Prism f
 
 **Technologies**:
 - .NET MAUI 9.0
-- Prism.Maui 9.0 (MVVM, DI, Navigation)
+- CommunityToolkit.Mvvm 8.4 (MVVM with source generators)
 - CommunityToolkit.Maui 11.0
+- Microsoft.Extensions.DependencyInjection (Built-in DI)
 
 ### 2. Core Library Layer (AtlasERP.Core)
 
@@ -156,11 +157,13 @@ AtlasERP.Modules.{Name}/
 
 **Purpose**: Loose coupling and testability
 
-**Implementation**: Using Prism's DryIoc container
+**Implementation**: Using .NET MAUI's built-in Dependency Injection
 
 ```csharp
-// Registration
-containerRegistry.RegisterSingleton<IAuthenticationService, AuthenticationService>();
+// Registration in MauiProgram.cs
+builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
+builder.Services.AddTransient<LoginPage>();
+builder.Services.AddTransient<LoginPageViewModel>();
 
 // Injection
 public LoginPageViewModel(IAuthenticationService authService)
@@ -174,6 +177,7 @@ public LoginPageViewModel(IAuthenticationService authService)
 - Easy testing with mocks
 - Flexible service implementation
 - Lifecycle management
+- Standard .NET pattern
 
 ### 3. Module Pattern
 
@@ -250,7 +254,7 @@ public interface IRepository<T>
 - **Framework**: .NET MAUI 9.0
 - **Language**: C# 12 with nullable reference types
 - **UI**: XAML with data binding
-- **MVVM**: Prism.Maui 9.0
+- **MVVM**: CommunityToolkit.Mvvm 8.4 with source generators
 - **Toolkit**: CommunityToolkit.Maui 11.0
 
 ### Backend (Future)
@@ -261,8 +265,8 @@ public interface IRepository<T>
 
 ### Cross-Cutting
 - **Logging**: Microsoft.Extensions.Logging
-- **DI Container**: DryIoc (via Prism)
-- **Navigation**: Prism Navigation Service
+- **DI Container**: Microsoft.Extensions.DependencyInjection (Built-in MAUI DI)
+- **Navigation**: .NET MAUI Navigation
 
 ## Security Considerations
 
@@ -331,6 +335,6 @@ public interface IRepository<T>
 ## References
 
 - [.NET MAUI Documentation](https://learn.microsoft.com/dotnet/maui/)
-- [Prism Library Documentation](https://prismlibrary.com/)
+- [CommunityToolkit.Mvvm Documentation](https://learn.microsoft.com/dotnet/communitytoolkit/mvvm/)
 - [MVVM Pattern](https://learn.microsoft.com/dotnet/architecture/maui/mvvm)
 - [Dependency Injection](https://learn.microsoft.com/dotnet/core/extensions/dependency-injection)

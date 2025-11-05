@@ -2,9 +2,9 @@
 
 ![AtlasERP Logo](https://img.shields.io/badge/AtlasERP-v1.0-blue)
 ![.NET MAUI](https://img.shields.io/badge/.NET%20MAUI-9.0-purple)
-![Prism](https://img.shields.io/badge/Prism-9.0-green)
+![CommunityToolkit.Mvvm](https://img.shields.io/badge/CommunityToolkit.Mvvm-8.4-green)
 
-A powerful, modular Enterprise Resource Planning (ERP) desktop application built with .NET MAUI framework and Prism library for MVVM architecture.
+A powerful, modular Enterprise Resource Planning (ERP) desktop application built with .NET MAUI framework and CommunityToolkit.Mvvm for MVVM architecture.
 
 ## Features
 
@@ -44,7 +44,8 @@ AtlasERP/
 
 - **.NET 9.0** - Latest .NET framework
 - **.NET MAUI** - Cross-platform UI framework
-- **Prism.Maui** - MVVM framework with DI container
+- **CommunityToolkit.Mvvm** - Modern MVVM framework with source generators
+- **.NET Dependency Injection** - Built-in MAUI DI container
 - **CommunityToolkit.Maui** - Additional MAUI components
 - **C#** - Primary programming language
 
@@ -233,9 +234,9 @@ For issues and questions:
 ## Acknowledgments
 
 - Built with [.NET MAUI](https://dotnet.microsoft.com/apps/maui)
-- MVVM with [Prism Library](https://prismlibrary.com/)
+- MVVM with [CommunityToolkit.Mvvm](https://learn.microsoft.com/dotnet/communitytoolkit/mvvm/)
 - UI components from [.NET MAUI Community Toolkit](https://github.com/CommunityToolkit/Maui)
 
 ---
 
-**AtlasERP** - Powerful, supportive, foundational ERP application on .NET MAUI Framework and Prism (C#)
+**AtlasERP** - Powerful, supportive, foundational ERP application on .NET MAUI Framework (C#)

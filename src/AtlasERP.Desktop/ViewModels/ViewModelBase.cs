@@ -1,19 +1,9 @@
-using Prism.Mvvm;
-using Prism.Navigation;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace AtlasERP.Desktop.ViewModels;
 
-public class ViewModelBase : BindableBase, IDestructible
+public partial class ViewModelBase : ObservableObject
 {
+    [ObservableProperty]
     private string? _title;
-    public string? Title
-    {
-        get => _title;
-        set => SetProperty(ref _title, value);
-    }
-
-    public virtual void Destroy()
-    {
-        // Cleanup logic
-    }
 }

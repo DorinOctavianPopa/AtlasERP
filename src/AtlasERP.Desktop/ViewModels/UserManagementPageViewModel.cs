@@ -1,33 +1,20 @@
 using AtlasERP.Core.Models;
-using Prism.Commands;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 
 namespace AtlasERP.Desktop.ViewModels;
 
-public class UserManagementPageViewModel : ViewModelBase
+public partial class UserManagementPageViewModel : ViewModelBase
 {
     public ObservableCollection<User> Users { get; } = new();
 
+    [ObservableProperty]
     private User? _selectedUser;
-    public User? SelectedUser
-    {
-        get => _selectedUser;
-        set => SetProperty(ref _selectedUser, value);
-    }
-
-    public ICommand AddUserCommand { get; }
-    public ICommand EditUserCommand { get; }
-    public ICommand DeleteUserCommand { get; }
 
     public UserManagementPageViewModel()
     {
         Title = "User Management";
-
-        AddUserCommand = new DelegateCommand(ExecuteAddUser);
-        EditUserCommand = new DelegateCommand<User>(ExecuteEditUser);
-        DeleteUserCommand = new DelegateCommand<User>(ExecuteDeleteUser);
-
         LoadSampleData();
     }
 
@@ -64,7 +51,8 @@ public class UserManagementPageViewModel : ViewModelBase
         });
     }
 
-    private void ExecuteAddUser()
+    [RelayCommand]
+    private void AddUser()
     {
         // In a real app, this would open a dialog or navigate to an add user page
         var newUser = new User
@@ -78,7 +66,8 @@ public class UserManagementPageViewModel : ViewModelBase
         Users.Add(newUser);
     }
 
-    private void ExecuteEditUser(User? user)
+    [RelayCommand]
+    private void EditUser(User? user)
     {
         // In a real app, this would open an edit dialog
         if (user != null)
@@ -87,7 +76,8 @@ public class UserManagementPageViewModel : ViewModelBase
         }
     }
 
-    private void ExecuteDeleteUser(User? user)
+    [RelayCommand]
+    private void DeleteUser(User? user)
     {
         if (user != null)
         {

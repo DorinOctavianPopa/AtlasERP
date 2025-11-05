@@ -1,26 +1,20 @@
 using AtlasERP.Core.Interfaces;
 using AtlasERP.Core.Models;
-using Prism.Commands;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 
 namespace AtlasERP.Desktop.ViewModels;
 
-public class ModuleManagementPageViewModel : ViewModelBase
+public partial class ModuleManagementPageViewModel : ViewModelBase
 {
     private readonly IModuleManager _moduleManager;
 
     public ObservableCollection<ModuleInfo> Modules { get; } = new();
 
-    public ICommand ToggleModuleCommand { get; }
-
     public ModuleManagementPageViewModel(IModuleManager moduleManager)
     {
         _moduleManager = moduleManager;
         Title = "Module Management";
-
-        ToggleModuleCommand = new DelegateCommand<ModuleInfo>(ExecuteToggleModule);
-
         LoadModules();
     }
 
@@ -86,7 +80,8 @@ public class ModuleManagementPageViewModel : ViewModelBase
         }
     }
 
-    private void ExecuteToggleModule(ModuleInfo? module)
+    [RelayCommand]
+    private void ToggleModule(ModuleInfo? module)
     {
         if (module != null)
         {

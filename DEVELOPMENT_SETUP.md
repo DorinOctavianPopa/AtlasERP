@@ -244,7 +244,7 @@ See the main README.md for instructions on creating custom modules.
 - **Documentation**: See README.md
 - **Issues**: Create an issue on GitHub
 - **.NET MAUI Docs**: https://learn.microsoft.com/dotnet/maui/
-- **Prism Docs**: https://prismlibrary.com/
+- **CommunityToolkit.Mvvm Docs**: https://learn.microsoft.com/dotnet/communitytoolkit/mvvm/
 
 ## System Requirements Summary
 

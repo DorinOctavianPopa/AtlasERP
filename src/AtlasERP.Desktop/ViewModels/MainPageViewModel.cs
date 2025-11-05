@@ -1,43 +1,33 @@
 using AtlasERP.Core.Interfaces;
-using Prism.Commands;
-using Prism.Navigation;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 
 namespace AtlasERP.Desktop.ViewModels;
 
-public class MainPageViewModel : ViewModelBase, INavigatedAware
+public partial class MainPageViewModel : ViewModelBase
 {
     private readonly IAuthenticationService _authService;
     private readonly IModuleManager _moduleManager;
-    private readonly INavigationService _navigationService;
+    private readonly IServiceProvider _serviceProvider;
 
+    [ObservableProperty]
     private string _welcomeMessage = string.Empty;
-    public string WelcomeMessage
-    {
-        get => _welcomeMessage;
-        set => SetProperty(ref _welcomeMessage, value);
-    }
 
     public ObservableCollection<MenuItem> MenuItems { get; } = new();
-
-    public ICommand NavigateCommand { get; }
-    public ICommand LogoutCommand { get; }
 
     public MainPageViewModel(
         IAuthenticationService authService,
         IModuleManager moduleManager,
-        INavigationService navigationService)
+        IServiceProvider serviceProvider)
     {
         _authService = authService;
         _moduleManager = moduleManager;
-        _navigationService = navigationService;
+        _serviceProvider = serviceProvider;
         Title = "AtlasERP - Main";
 
-        NavigateCommand = new DelegateCommand<string>(async (page) => await ExecuteNavigateCommand(page));
-        LogoutCommand = new DelegateCommand(async () => await ExecuteLogoutCommand());
-
         InitializeMenu();
+        UpdateWelcomeMessage();
     }
 
     private void InitializeMenu()
@@ -91,25 +81,35 @@ public class MainPageViewModel : ViewModelBase, INavigatedAware
         }
     }
 
-    private async Task ExecuteNavigateCommand(string? page)
+    [RelayCommand]
+    private async Task NavigateAsync(string? page)
     {
-        if (!string.IsNullOrEmpty(page))
+        if (!string.IsNullOrEmpty(page) && Application.Current?.Windows[0].Page?.Navigation != null)
         {
-            await _navigationService.NavigateAsync(page);
+            var pageType = Type.GetType($"AtlasERP.Desktop.Views.{page}, AtlasERP.Desktop");
+            if (pageType != null)
+            {
+                var pageInstance = _serviceProvider.GetService(pageType) as Page;
+                if (pageInstance != null)
+                {
+                    await Application.Current.Windows[0].Page.Navigation.PushAsync(pageInstance);
+                }
+            }
         }
     }
 
-    private async Task ExecuteLogoutCommand()
+    [RelayCommand]
+    private async Task LogoutAsync()
     {
         await _authService.LogoutAsync();
-        await _navigationService.NavigateAsync("/NavigationPage/LoginPage");
+        
+        if (Application.Current?.Windows.FirstOrDefault()?.Page is NavigationPage navPage)
+        {
+            await navPage.PopToRootAsync();
+        }
     }
 
-    public void OnNavigatedFrom(INavigationParameters parameters)
-    {
-    }
-
-    public void OnNavigatedTo(INavigationParameters parameters)
+    private void UpdateWelcomeMessage()
     {
         if (_authService.CurrentUser != null)
         {

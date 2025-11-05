@@ -1,11 +1,18 @@
-using Prism.Ioc;
-
 namespace AtlasERP.Desktop;
 
-public partial class App : Microsoft.Maui.Controls.Application
+public partial class App : Application
 {
-    public App(IContainerProvider container) : base(container)
+    private readonly IServiceProvider _serviceProvider;
+
+    public App(IServiceProvider serviceProvider)
     {
         InitializeComponent();
+        _serviceProvider = serviceProvider;
+    }
+
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        var loginPage = _serviceProvider.GetRequiredService<Views.LoginPage>();
+        return new Window(new NavigationPage(loginPage));
     }
 }
