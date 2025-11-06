@@ -16,7 +16,7 @@ public class LocalizeExtension : IMarkupExtension<BindingBase>
         var binding = new Binding
         {
             Mode = BindingMode.OneWay,
-            Path = $"[{Key}]",
+            Path = string.IsNullOrEmpty(Key) ? "[_]" : $"[{Key}]",
             Source = LocalizationManager.Instance
         };
         return binding;
@@ -44,6 +44,12 @@ public class LocalizationManager : INotifyPropertyChanged
     {
         get
         {
+            if (key == null)
+                return null;
+            
+            if (string.IsNullOrEmpty(key))
+                return key;
+                
             var value = AppResources.ResourceManager.GetString(key, AppResources.Culture);
             return value ?? key;
         }
