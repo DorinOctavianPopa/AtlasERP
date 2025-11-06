@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtlasERP.Modules.HR", "src\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AB3BF05-4346-4AA6-1389-037BE0695223}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtlasERP.Tests", "tests\AtlasERP.Tests\AtlasERP.Tests.csproj", "{1A0CB028-768C-470C-904B-B88D2E903C3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtlasERP.Tests", "tests\AtlasERP.Desktop.NUnit.Tests\AtlasERP.Desktop.NUnit.Tests.csproj", "{1A0CB028-768C-470C-904B-B88D2E903C3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
