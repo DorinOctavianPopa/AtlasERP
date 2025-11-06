@@ -35,7 +35,7 @@
 
   <ItemGroup>
     <!-- Reference only Core project -->
-    <ProjectReference Include="..\..\src\AtlasERP.Core\AtlasERP.Core.csproj" />
+    <ProjectReference Include="..\..\src\AtlasERP.Desktop\AtlasERP.Desktop.csproj" />
   </ItemGroup>
   
   <ItemGroup>
