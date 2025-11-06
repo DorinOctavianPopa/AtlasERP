@@ -1,13 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <!-- Target standard .NET for unit testing business logic -->
     <TargetFramework>net9.0</TargetFramework>
+    
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Test packages only -->
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
     <PackageReference Include="FluentAssertions" Version="8.8.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
@@ -21,7 +25,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Only test Core business logic, not UI -->
     <ProjectReference Include="..\..\src\AtlasERP.Core\AtlasERP.Core.csproj" />
+    <ProjectReference Include="..\..\src\AtlasERP.Modules.Accounting\AtlasERP.Modules.Accounting.csproj" />
+    <ProjectReference Include="..\..\src\AtlasERP.Modules.HR\AtlasERP.Modules.HR.csproj" />
+    <ProjectReference Include="..\..\src\AtlasERP.Modules.Inventory\AtlasERP.Modules.Inventory.csproj" />
+    <ProjectReference Include="..\..\src\AtlasERP.Modules.Sales\AtlasERP.Modules.Sales.csproj" />
   </ItemGroup>
 
 </Project>
